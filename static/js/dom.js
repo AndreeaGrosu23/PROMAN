@@ -20,11 +20,12 @@ export let dom = {
         for (let board of boards) {
             boardList += `
             <section class="board">
-                <div class="board-header"><span class="board-title">${board.title}</span>
+                <div class="board-header"><span class="board-title" id="${board.id}">${board.title}</span>
                     <button class="btn btn-dark" id="buttonNewCardForBoard${board.id}">Add Card</button>            
                 </div>
             </section>
             `;
+
         }
 
         const outerHtml = `
@@ -42,6 +43,7 @@ export let dom = {
                 button.addEventListener('click', dom.createNewCard);
             }
         }
+
 
 
     },
@@ -64,6 +66,15 @@ export let dom = {
         alert(message);
         window.location.reload();
 
-    }
+    },
+    // createNewBoard: function() {
+    //     let boardTitle = 'New Board';
+    //     let owner = 'public';
+    //     dataHandler.createNewBoard(boardTitle, owner, dom.alertWebAdd);
+    // },
+    // alertWebAdd: function (message) {
+    //     alert(message);
+    //     window.location.reload();
+    // },
 
 };
