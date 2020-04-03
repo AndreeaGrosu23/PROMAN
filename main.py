@@ -86,6 +86,15 @@ def add_card():
     return redirect(url_for('index'))
 
 
+@app.route('/add-board', methods=['POST'])
+def add_board():
+    if request.method == 'POST':
+        board_title = request.form['new_board']
+        owner = 'public'
+        result = persistence.add_board(board_title, owner)
+        # return jsonify(result)
+    return redirect(url_for('index'))
+
 
 def main():
     app.run(debug=True)
